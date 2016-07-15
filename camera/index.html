@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>摄像头</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta charset="utf-8">
+	</head>
+	<body>
+
+		<video id="video" autoplay=""style='width:200px;height:100px'></video>
+		<img id="img"/>
+		<button id='picture'>PICTURE</button> 
+		<canvas id="canvas" width="200" height="100"></canvas>
+
+	    <script type="text/javascript">
+	        var video = document.getElementById("video");
+	        var context = canvas.getContext("2d");
+    			var errocb = function () {
+                    console.log('sth wrong!');
+                }
+    
+    
+    			if (navigator.getUserMedia) { // 标准的API
+                    navigator.getUserMedia({ "video": true }, function (stream) {
+                        video.src = stream;
+                        video.play();
+                    }, errocb);
+    			} else if(navigator.webkitGetUserMedia) { // WebKit
+	                navigator.webkitGetUserMedia({ video: true }, function (stream) {
+	                  //alert(s)
+          	        video.src = window.webkitURL.createObjectURL(stream);
+          	        
+                    video.onloadedmetadata = function(e) {
+                      // Do something with the video here.
+                      video.play();
+                    };	      
+                    video.play();              
+	                }, errocb);
+			 }else{
+			 	console.log("error");
+			 }
+			 //拍照
+			document.getElementById("picture").addEventListener("click", function () {
+                context.drawImage(video, 0, 0, 640, 480);
+			});
+	    </script>
+
+	</body>
+</html>
