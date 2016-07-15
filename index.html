@@ -16,7 +16,7 @@
 	        var video = document.getElementById("video");
 	        var context = canvas.getContext("2d");
     			var errocb = function () {
-                    console.log('sth wrong!');
+                    alert('sth wrong!');
                 }
     
     
@@ -37,7 +37,7 @@
                     video.play();              
 	                }, errocb);
 			 }else{
-			 	console.log("error");
+			 	alert("error");
 			 }
 			 //拍照
 			document.getElementById("picture").addEventListener("click", function () {
