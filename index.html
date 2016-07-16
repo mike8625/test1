@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>摄像头</title>
+		<title>camera</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta charset="utf-8">
 	</head>
@@ -13,6 +13,10 @@
 		<canvas id="canvas" width="320" height="240"></canvas>
 
 	    <script type="text/javascript">
+window.onerror =function(e){
+alert(e)
+
+}
 	        var video = document.getElementById("video");
 	        var context = canvas.getContext("2d");
     			var errocb = function () {
