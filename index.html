@@ -1,52 +1,33 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>camera</title>
+		<title>testl</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta charset="utf-8">
 	</head>
 	<body>
+<div id="demo"></demo>
+<script>
+//定位
+var x=document.getElementById("demo"); 
+function getLocation() 
+{ 
+    if (navigator.geolocation) 
+    { 
+        navigator.geolocation.getCurrentPosition(showPosition); 
+    } 
+    else 
+    { 
+        x.innerHTML="该浏览器不支持获取地理位置。"; 
+    } 
+} 
 
-		<video id="video" autoplay=""style='width:320px;height:240px'></video>
-		<img id="img"/>
-		<button id='picture'>PICTURE</button> 
-		<canvas id="canvas" width="320" height="240"></canvas>
-
-	    <script type="text/javascript">
-window.onerror =function(e){
-alert(e)
-
+function showPosition(position) 
+{ 
+    x.innerHTML="纬度: " + position.coords.latitude + 
+    "<br>经度: " + position.coords.longitude;     
 }
-	        var video = document.getElementById("video");
-	        var context = canvas.getContext("2d");
-    			var errocb = function () {
-                    alert('sth wrong!');
-                }
-    
-    
-    			if (navigator.getUserMedia) { // 标准的API
-                    navigator.getUserMedia(video: { width: 1280, height: 720 }, function (stream) {
-                        video.src = stream;
-                        video.play();
-                    }, errocb);
-    			} else if(navigator.webkitGetUserMedia) { // WebKit
-	                navigator.webkitGetUserMedia({ video: true }, function (stream) {
-	                  //alert(s)
-          	        video.src = window.webkitURL.createObjectURL(stream);
-          	        
-                    video.onloadedmetadata = function(e) {
-                      // Do something with the video here.
-                      video.play();
-                    };	      
-                    video.play();              
-	                }, errocb);
-			 }else{
-			 	alert("error");
-			 }
-			 //拍照
-			document.getElementById("picture").addEventListener("click", function () {
-                context.drawImage(video, 0, 0, 640, 480);
-			});
+getLocation() 
 	    </script>
 
 	</body>
