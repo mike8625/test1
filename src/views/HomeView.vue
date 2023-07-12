@@ -11,9 +11,8 @@ import HelloWorld from "@/components/HelloWorld.vue"; // @ is an alias to /src
 
 function add() {
   let a = 1;
-  console.log(a);
+  console.log(a)
 }
-add();
 
 @Options({
   components: {
