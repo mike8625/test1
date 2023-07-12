@@ -3,7 +3,7 @@ module.exports = {
   env: {
     node: true,
   },
-  plugins: ["mike8625"],
+  //plugins: ["mike8625"],
   extends: [
     "plugin:vue/vue3-essential",
     "eslint:recommended",
@@ -16,7 +16,7 @@ module.exports = {
   rules: {
     "no-console": process.env.NODE_ENV === "production" ? "warn" : "off",
     "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off",
-    "mike8625/function-endwith-num": ["error"],
+    //"mike8625/function-endwith-num": ["error"],
 
     // "prettier/prettier": [
     //   "error",
