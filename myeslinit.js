@@ -1,3 +1,4 @@
+// 一开始说这个文件可以被导入到eslintrc.js里面 但试了一下好像不太行...待研究...
 module.exports = {
   root: true,
   env: {
