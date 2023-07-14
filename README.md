@@ -61,3 +61,48 @@ npm install @commitlint/cli @commitlint/config-conventional -D
 
 
 ### 这里只是简单的说明,具体的还是要看文档
+
+### stylelint 使用
+
+先装依赖
+
+yarn add stylelint postcss postcss-less postcss-html stylelint-config-prettier stylelint-config-recommended-less stylelint-config-standard stylelint-config-standard-vue stylelint-less stylelint-order -D
+
+>目前版本是 stylelint 15.10.1 我是按14的文档做的 也没有问题 
+
+先添加.stylelintrc.js 见根目录
+
+package.json里面添加 
+`
+script: {
+  ...
+  lint:style": "stylelint \"./**/*.{css,less,vue,html}\" --fix"
+}
+`
+
+这样以后执行 npm run lint:style  就可以自动检查和修正css错误了
+
+vscode settings.json里面添加
+`
+  "editor.codeActionsOnSave": {
+    "source.fixAll": false,
+    "source.fixAll.eslint": true,
++   "source.fixAll.stylelint": true  --这句 上面两句是eslint配置的时候加的
+  },
+  "stylelint.validate": ["css", "less", "vue", "html"]   --还有这句
+
+`
+
+在package.json里面 给lint-staged添加一个属性 
+  "lint-staged": {
+    "*.{js,vue}": [
+      "eslint"
+    ],
+    // 这个是新加的,上面是判断js方面的  --fix可以加 也可以不加 直接告诉它有错误人让他自己改
+    "**/*.{css,less,scss,vue}": [
+      "stylelint --fix"
+    ]
+  }
+
+这样在提交的时候就可以检查css样式了
+
