@@ -25,5 +25,8 @@ export default class HomeView extends Vue {}
 body {
   padding: 5px;
   height: 100%;
+  font-size: 16px;
+  color: #ccc;
+  background-color: #ccc;
 }
 </style>
