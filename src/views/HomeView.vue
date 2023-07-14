@@ -21,3 +21,9 @@ function add() {
 })
 export default class HomeView extends Vue {}
 </script>
+<style>
+body {
+  padding: 5px;
+  height: 100%;
+}
+</style>
