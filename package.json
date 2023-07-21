@@ -56,7 +56,7 @@
     "typescript": "~4.5.5"
   },
   "lint-staged": {
-    "*.{js,vue}": [
+    "*.{js,vue, ts}": [
       "eslint"
     ],
     "**/*.{css,less,scss,vue}": [
